@@ -1,0 +1,42 @@
+{
+  "class_order": [
+    "angular_leaf_spot",
+    "bean_rust",
+    "healthy"
+  ],
+  "baseline_cnn": [
+    [
+      38,
+      4,
+      1
+    ],
+    [
+      8,
+      31,
+      4
+    ],
+    [
+      1,
+      3,
+      38
+    ]
+  ],
+  "augmented_cnn": [
+    [
+      36,
+      3,
+      4
+    ],
+    [
+      10,
+      26,
+      7
+    ],
+    [
+      0,
+      4,
+      38
+    ]
+  ],
+  "note": "Rows are actual classes; columns are predicted classes."
+}

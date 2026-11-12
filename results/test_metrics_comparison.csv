@@ -1,0 +1,6 @@
+metric,baseline_cnn,augmented_cnn
+test_accuracy,0.835938,0.781250
+test_loss,0.384859,0.490140
+macro_f1,0.834665,0.776121
+weighted_f1,0.834200,0.775660
+test_samples,128,128

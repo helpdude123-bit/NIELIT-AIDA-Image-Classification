@@ -1,0 +1,6 @@
+class,baseline_precision,baseline_recall,baseline_f1,augmented_precision,augmented_recall,augmented_f1,support
+angular_leaf_spot,0.8085,0.8837,0.8444,0.7826,0.8372,0.8090,43
+bean_rust,0.8158,0.7209,0.7654,0.7879,0.6047,0.6842,43
+healthy,0.8837,0.9048,0.8941,0.7755,0.9048,0.8352,42
+macro_avg,0.8360,0.8365,0.8347,0.7820,0.7822,0.7761,128
+weighted_avg,0.8356,0.8359,0.8342,0.7820,0.7812,0.7757,128
