@@ -1,11 +1,11 @@
 # Model artifacts
 
-Place the final trained Keras model in this folder with the exact filename:
+The selected trained baseline CNN is included in this folder:
 
     final_bean_leaf_disease_cnn.keras
 
-The Streamlit app loads:
+The Streamlit app loads this file from:
 
     models/final_bean_leaf_disease_cnn.keras
 
-During development, the final model was saved in the project owner's Google Drive. It is not included in this source-code commit. Add the model artifact separately before running the application from a fresh clone.
+This is the final selected baseline model used by `app.py`. The dataset images are not stored in this folder or included in the repository. Obtain the Beans dataset from the cited dataset source before running a fresh training experiment.
