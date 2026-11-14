@@ -8,17 +8,18 @@ A three-class image-classification project using a Convolutional Neural Network 
 
 - Baseline CNN training: completed (30 epochs; best checkpoint selected using validation loss).
 - Augmented CNN training: completed (30 epochs; best checkpoint selected using validation loss).
-- Independent test evaluation: completed for both models.
-- Streamlit application: implemented in app.py.
-- Final model artifact: stored separately in the project owner's Google Drive during development. Place it at models/final_bean_leaf_disease_cnn.keras before running the app. The binary model is not included in this source-code commit.
+- Independent test evaluation: completed for both recorded configurations.
+- Streamlit application: implemented in `app.py`.
+- Selected baseline model: included at `models/final_bean_leaf_disease_cnn.keras`.
+- Training reproduction script: supplied separately in the NIELIT submission package as `train_model.py`. It is a consolidated reproduction script aligned with the recorded architecture/settings, not an export of the original interactive Colab notebook.
 
 ## Dataset
 
-Makerere AI Lab Beans Dataset (TensorFlow Datasets name: beans, version 0.1.0).
+Makerere AI Lab Beans Dataset (TensorFlow Datasets name: `beans`, version 0.1.0).
 
 - Smartphone field images of bean leaves.
 - Classes: Angular Leaf Spot, Bean Rust, and Healthy.
-- Dataset description identifies NaCRRI experts in Uganda as annotators and Makerere AI Research Lab as the collecting lab.
+- Dataset documentation identifies NaCRRI experts in Uganda as annotators and Makerere AI Research Lab as the collecting lab.
 - Original images: 500 x 500 RGB, uint8.
 - Model input: 224 x 224 RGB, float32, pixel values scaled to [0, 1].
 
@@ -33,7 +34,7 @@ Dataset references:
 - https://www.tensorflow.org/datasets/catalog/beans
 - https://github.com/AI-Lab-Makerere/ibean
 
-Dataset image files are not included in this repository.
+Dataset image files are not included in this repository. Obtain them from the cited dataset source and organise them into the three split folders before training.
 
 ## Model experiments
 
@@ -43,13 +44,13 @@ Four convolution/max-pooling blocks (32, 64, 128, and 256 filters), Global Avera
 
 ### Augmented CNN
 
-The second experiment added training-time augmentation:
+The second recorded experiment added training-time augmentation:
 - Random horizontal flip
 - Random rotation (0.10)
 - Random zoom (0.10)
 - Random contrast (0.10)
 
-Both models have 421,699 trainable parameters. The recorded model definitions differ in Conv2D padding: the baseline used the Keras default (valid), while the augmented model used same padding. This implementation difference should be considered when interpreting the comparison.
+Both models have 421,699 parameters. The recorded model definitions differ in Conv2D padding: the baseline used the Keras default (`valid`), while the augmented model used `same` padding. This implementation difference should be considered when interpreting the comparison.
 
 ## Test-set results
 
@@ -73,46 +74,46 @@ The baseline correctly classified 107 of 128 test images; the augmented model co
 Confusion matrices (rows = actual class; columns = predicted class; order: Angular Leaf Spot, Bean Rust, Healthy):
 
 Baseline CNN:
-~~~text
+```text
 [[38,  4,  1],
  [ 8, 31,  4],
  [ 1,  3, 38]]
-~~~
+```
 
 Augmented CNN:
-~~~text
+```text
 [[36,  3,  4],
  [10, 26,  7],
  [ 0,  4, 38]]
-~~~
+```
 
 The baseline model is selected as the final model because it achieved higher test accuracy and F1-scores and lower test loss in this experiment. This result is limited to this held-out split; it does not establish that baseline CNNs outperform augmentation on all bean-leaf datasets.
 
 ## Run the Streamlit app
 
 1. Install dependencies:
-   ~~~bash
+   ```bash
    pip install -r requirements.txt
-   ~~~
-2. Place the trained model at:
-   ~~~text
+   ```
+2. The selected model is already included at:
+   ```text
    models/final_bean_leaf_disease_cnn.keras
-   ~~~
-   The model is currently stored separately in the project owner's Google Drive and is not included in this commit.
+   ```
 3. Launch:
-   ~~~bash
+   ```bash
    streamlit run app.py
-   ~~~
+   ```
 
 The app preprocesses images as RGB, resizes them to 224 x 224 using bilinear interpolation, converts to float32, and scales pixel values to [0, 1].
 
 ## Repository layout
 
-~~~text
+```text
 .
 |-- app.py
 |-- requirements.txt
 |-- models/
+|   |-- final_bean_leaf_disease_cnn.keras
 |   |-- README.md
 |-- results/
 |   |-- test_metrics_comparison.csv
@@ -120,7 +121,7 @@ The app preprocesses images as RGB, resizes them to 224 x 224 using bilinear int
 |   |-- confusion_matrices.json
 |-- reports/
 |   |-- experiment_summary.md
-~~~
+```
 
 ## Important limitation
 
